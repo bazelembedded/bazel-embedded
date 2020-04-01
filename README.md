@@ -15,7 +15,7 @@ Current support is limited to Arm Cortex-M Devices:
 List of support;
 - [x] Toolchains
 - [ ] Static analysers 
-- [ ] A collection of BUILD file templates for common embedded libraries
+- [X] A collection of BUILD file templates for common embedded libraries
 - [x] Utilities for programming targets
 - [x] Utilities for debugging targets
 - [ ] Parralell execution for a test "farm" of embedded test devices
@@ -54,10 +54,9 @@ load("@bazel_embedded//toolchains/gcc_arm_none_eabi:gcc_arm_none_toolchain.bzl",
 register_gcc_arm_none_toolchain()
 ```
 
-Enable incompatible/future support for bazel toolchain resolution by adding the following .bazelrc to your project. This won't be required in future after this becomes the default functionality in bazel.
+Enable incompatible/future support for bazel toolchain resolution by adding the following .bazelrc to your project. This won't be required in future after this becomes the default functionality in bazel. Alternatively it is possible to add this flag each time you build.
 ```
 build --incompatible_enable_cc_toolchain_resolution
-
 ```
 
 Cross Compile your target
@@ -73,6 +72,17 @@ bazel build //:your_target --platforms=@bazel_embedded//platforms:cortex_m7_fpu
 ```
 
 Explore the examples for more in depth details...
+
+## STM32cube support
+Currently supported device library build files
+- [X] stm32h7 examples can be found in examples/minimal_stm32h7_cubemx
+    - Hal libraries
+    - USB middlewares
+    - Network libraries
+    - Fatfs
+    - Mbed TLS
+- [ ] stm32l4 WIP 
+- [ ] stm32f4 TODO
 
 ## Caveats
 If your repository contains platform independant you will not be able to automatically exclude platform dependant code. For example;
