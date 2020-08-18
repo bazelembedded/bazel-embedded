@@ -1,3 +1,5 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
 cc_binary(
     name = "serial_wrapper",
     srcs = ["serial_wrapper.cc"],

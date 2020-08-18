@@ -1,4 +1,5 @@
 load("@io_bazel_stardoc//stardoc:stardoc.bzl", "stardoc")
+load(":defs.bzl", "openocd_execution_wrapper")
 
 stardoc(
     name = "openocd_repository_docs",
@@ -12,8 +13,6 @@ stardoc(
     out = "openocd.md",
     input = "defs.bzl",
 )
-
-load(":defs.bzl", "openocd_execution_wrapper")
 
 openocd_execution_wrapper(
     name = "test_wrapper",
