@@ -8,7 +8,7 @@ VERSIONS = {
 }
 
 
-def _stm32f103xx_repository_impl(rctx):
+def _stm32f1xx_repository_impl(rctx):
     REPOSITORY_NAME = "STM32CubeF1"
     BASE_URL = "https://github.com/STMicroelectronics/" + REPOSITORY_NAME + "/archive/"
 
