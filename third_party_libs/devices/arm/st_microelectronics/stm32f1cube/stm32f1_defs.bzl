@@ -71,7 +71,7 @@ def stm32f1_project(name, config):
 
     cc_library(
         name = name + "_stm32_network_library",
-        srcs = native.glob(["Middlewares/ST/STM32_Netowrk_Library/**/*.c"], exclude = glob_excludes),
+        srcs = native.glob(["Middlewares/ST/STM32_Network_Library/**/*.c"], exclude = glob_excludes),
         hdrs = native.glob(["**/*.h"]),
         defines = defines,
         includes = include_directories,
