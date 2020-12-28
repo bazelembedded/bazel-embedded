@@ -46,7 +46,7 @@ def GccIncludeFeature(include_paths):
     )
     return _INCLUDE_FEATURE
 
-def GccAchitectureFeature(architecture, float_abi, endian, fpu):
+def GccAchitectureFeature(cpu, architecture, float_abi, endian, fpu):
     if fpu == "none":
         fpu = "auto"
     _ARCHITECTURE_FEATURE = feature(
@@ -59,7 +59,9 @@ def GccAchitectureFeature(architecture, float_abi, endian, fpu):
                 flag_groups = [
                     flag_group(
                         flags = [
-                            # Set the system architecture/cpu
+                            # Set the CPU
+                            "-mcpu=" + cpu,
+                            # Set the system architecture
                             "-march=" + architecture,
                             # Set the fpu
                             "-mfpu=" + fpu,
@@ -270,14 +272,14 @@ _OUTPUT_FORMAT_FEATURE = feature(
     ],
 )
 
-def GetGccCommonFeatures(include_paths, architecture = "native", float_abi = "soft", endian = "little", fpu = "nofp"):
+def GetGccCommonFeatures(include_paths, cpu = None, architecture = "native", float_abi = "soft", endian = "little", fpu = "nofp"):
     return all_common_features(
         all_warnings = _ALL_WARNINGS_FEATURE,
         all_warnings_as_errors = _ALL_WARNINGS_AS_ERRORS_FEATURE,
         reproducible = _REPRODUCIBLE_FEATURE,
         includes = GccIncludeFeature(include_paths),
         symbol_garbage_collection = _SYMBOL_GARBAGE_COLLECTION,
-        architecture = GccAchitectureFeature(architecture = architecture, fpu = fpu, float_abi = float_abi, endian = endian),
+        architecture = GccAchitectureFeature(cpu = cpu, architecture = architecture, fpu = fpu, float_abi = float_abi, endian = endian),
         dbg = _DEBUG_FEATURE,
         opt = _OPT_FEATURE,
         fastbuild = _FASTBUILD_FEATURE,

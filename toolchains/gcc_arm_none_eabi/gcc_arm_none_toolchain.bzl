@@ -96,6 +96,7 @@ def _gcc_arm_none_toolchain_config_info_impl(ctx):
 
     common_features = GetCommonFeatures(
         compiler = "GCC",
+        cpu = ctx.attr.cpu,
         architecture = ctx.attr.architecture,
         float_abi = ctx.attr.float_abi,
         endian = ctx.attr.endian,
@@ -137,6 +138,17 @@ def _gcc_arm_none_toolchain_config_info_impl(ctx):
 gcc_arm_none_toolchain_config = rule(
     implementation = _gcc_arm_none_toolchain_config_info_impl,
     attrs = {
+        "cpu": attr.string(
+            doc = "System CPU",
+            mandatory = False,
+            values = [
+                "cortex-m0",
+                "cortex-m1",
+                "cortex-m3",
+                "cortex-m4",
+                "cortex-m7",
+            ],
+        ),
         "architecture": attr.string(
             default = "armv4",
             doc = "System architecture",
@@ -242,11 +254,12 @@ def compiler_components():
         ],
     )
 
-def gcc_arm_none_toolchain(name, compiler_components, architecture, float_abi, endian, fpu):
+def gcc_arm_none_toolchain(name, compiler_components, cpu, architecture, float_abi, endian, fpu):
     toolchain_config = name + "_config"
 
     gcc_arm_none_toolchain_config(
         name = toolchain_config,
+        cpu = cpu,
         architecture = architecture,
         float_abi = float_abi,
         endian = endian,

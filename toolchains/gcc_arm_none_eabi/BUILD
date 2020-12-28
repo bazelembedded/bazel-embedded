@@ -35,6 +35,7 @@ compiler_components()
 
 [gcc_arm_none_toolchain(
     name = "arm_none_eabi_" + cfg.arch + "_" + cfg.fpu,
+    cpu = cfg.cpu,
     architecture = cfg.arch,
     compiler_components = ":compiler_components",
     endian = cfg.endian,
