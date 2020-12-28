@@ -20,9 +20,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-def device_config(cpu, fpu, float_abi, endian):
-    if type(cpu) != "string":
-        fail("Should be of type string", "cpu")
+def device_config(arch, fpu, float_abi, endian):
+    if type(arch) != "string":
+        fail("Should be of type string", "arch")
     if type(fpu) != "string":
         fail("Should be of type string", "fpu")
     if type(float_abi) != "string":
@@ -31,7 +31,7 @@ def device_config(cpu, fpu, float_abi, endian):
         fail("Should be of type string", "endian")
 
     return struct(
-        cpu = cpu,
+        arch = arch,
         fpu = fpu,
         float_abi = float_abi,
         endian = endian,

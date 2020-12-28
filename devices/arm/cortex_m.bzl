@@ -23,7 +23,7 @@
 load("//devices:device_config.bzl", "device_config")
 
 CORTEX_M0_DEVICE_CONFIG = device_config(
-    cpu = "armv6-m",
+    arch = "armv6-m",
     endian = "little",
     float_abi = "soft",
     fpu = "none",
@@ -32,21 +32,21 @@ CORTEX_M0_DEVICE_CONFIG = device_config(
 # CORTEX_M1_DEVICE_CONFIG same as cortex m0
 
 CORTEX_M3_DEVICE_CONFIG = device_config(
-    cpu = "armv7-m",
+    arch = "armv7-m",
     endian = "little",
     float_abi = "soft",
     fpu = "none",
 )
 
 CORTEX_M4_DEVICE_CONFIG = device_config(
-    cpu = "armv7e-m",
+    arch = "armv7e-m",
     endian = "little",
     float_abi = "soft",
     fpu = "none",
 )
 
 CORTEX_M4_FPU_DEVICE_CONFIG = device_config(
-    cpu = "armv7e-m",
+    arch = "armv7e-m",
     endian = "little",
     float_abi = "hard",
     fpu = "fpv4-sp-d16",
@@ -55,7 +55,7 @@ CORTEX_M4_FPU_DEVICE_CONFIG = device_config(
 # CORTEX_M7_DEVICE_CONFIG same as cortex m4
 
 CORTEX_M7_FPU_DEVICE_CONFIG = device_config(
-    cpu = "armv7e-m",
+    arch = "armv7e-m",
     endian = "little",
     float_abi = "hard",
     fpu = "fpv5-d16",

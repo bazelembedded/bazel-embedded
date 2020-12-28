@@ -316,7 +316,7 @@ AVR_MCUS = [
 ]
 
 AVR_CONFIGS = [device_config(
-    cpu = mcu,
+    arch = mcu,
     endain = "little",
     float_abi = "soft",
     fpu = "none",
