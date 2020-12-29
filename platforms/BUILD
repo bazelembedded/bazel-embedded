@@ -74,4 +74,5 @@ platform(
         "EXECUTOR": "cortex_m7_fpu",
     },
     parents = [":cortex_m"],
+    visibility = ['//visibility:public'],
 )
