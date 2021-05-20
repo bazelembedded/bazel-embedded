@@ -9,7 +9,7 @@ def _llvm_repository_impl(repository_ctx):
     if "windows" not in repository_ctx.os.name:
         remote_toolchain_info = get_platform_specific_config(version, repository_ctx.os.name)
         if repository_ctx.attr.sysroot:
-            sysroot_marker = repository_ctx.path(repository_ctx.attr.sysroot)
+            sysroot_marker = repository_ctx.attr.sysroot
 
         repository_ctx.download_and_extract(
             url = remote_toolchain_info["remote_compiler"]["url"],
@@ -24,8 +24,7 @@ def _llvm_repository_impl(repository_ctx):
     sysroot_args = []
     sysroot_path = ""
     if repository_ctx.attr.sysroot != None:
-        sysroot = repository_ctx.attr.sysroot
-        sysroot_path = str(sysroot_marker.dirname) + "/root/" + sysroot.package
+        sysroot_path = str(repository_ctx.path("../../" + repository_ctx.attr.sysroot.workspace_root))
         sysroot_args = ["--sysroot", sysroot_path]
     response = repository_ctx.execute(include_tools.ShellCommand(
         "bin/clang++",

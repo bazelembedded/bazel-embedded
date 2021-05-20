@@ -105,7 +105,7 @@ load("//toolchains/compilers/llvm:llvm_repository.bzl", "llvm_repository")
 
 llvm_repository(
     name = "com_llvm_compiler",
-    #sysroot = "@org_chromium_sysroot_linux_x64//:sysroot",
+    sysroot = "@org_chromium_sysroot_linux_x64//:all",
 )
 
 load("//toolchains/clang:clang_toolchain.bzl", "register_clang_toolchain")

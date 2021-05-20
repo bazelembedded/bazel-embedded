@@ -121,7 +121,6 @@ def _clang_toolchain_config_info_impl(ctx):
         os = "windows"
         postfix = ".bat"
     tool_paths = [tool_path(name = t.name, path = t.path.format(os = os) + postfix) for t in tool_paths]
-
     common_features = GetCommonFeatures(
         compiler = "CLANG",
         architecture = "x86-64",
@@ -192,13 +191,13 @@ def compiler_components(system_hdr_deps, injected_hdr_deps):
             system_hdr_deps,
             injected_hdr_deps,
         ],
-        #output_group = "CcInfo",
     )
     native.filegroup(
         name = "compiler_components",
         srcs = [
             "//toolchains/clang/clang_wrappers:all",
             "@com_llvm_compiler//:all",
+            "@org_chromium_sysroot_linux_x64//:all",
             ":additional_headers",
         ],
     )

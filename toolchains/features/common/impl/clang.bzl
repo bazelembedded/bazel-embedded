@@ -8,8 +8,6 @@ load("//toolchains/features/common:types.bzl", "all_common_features")
 load("@bazel_tools//tools/build_defs/cc:action_names.bzl", "ACTION_NAMES")
 
 _CPP_ALL_COMPILE_ACTIONS = [
-    ACTION_NAMES.assemble,
-    ACTION_NAMES.preprocess_assemble,
     ACTION_NAMES.linkstamp_compile,
     ACTION_NAMES.cpp_compile,
     ACTION_NAMES.cpp_header_parsing,
@@ -20,6 +18,7 @@ _CPP_ALL_COMPILE_ACTIONS = [
 ]
 
 _C_ALL_COMPILE_ACTIONS = [
+    ACTION_NAMES.preprocess_assemble,
     ACTION_NAMES.assemble,
     ACTION_NAMES.c_compile,
 ]
@@ -290,16 +289,6 @@ _MISC = feature(
                     flags = [
                         "-x",
                         "c++",
-                    ],
-                ),
-            ],
-        ),
-        flag_set(
-            actions = _CPP_ALL_COMPILE_ACTIONS,
-            flag_groups = [
-                flag_group(
-                    flags = [
-                        "-std=c++2a",
                     ],
                 ),
             ],

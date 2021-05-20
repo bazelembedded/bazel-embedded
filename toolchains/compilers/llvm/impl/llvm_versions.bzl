@@ -51,8 +51,20 @@ _PLATFORM_SPECIFIC_CONFIGS_11 = {
     },
 }
 
+_PLATFORM_SPECIFIC_CONFIGS_10 = {
+    "linux": {
+        "full_version": "10.0",
+        "remote_compiler": {
+            "url": "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.1/clang+llvm-10.0.1-x86_64-linux-gnu-ubuntu-16.04.tar.xz",
+            "sha256": "",
+            "strip_prefix": "clang+llvm-10.0.1-x86_64-linux-gnu-ubuntu-16.04",
+        },
+    },
+}
+
 TOOLCHAIN_VERSIONS = {
     "11": _PLATFORM_SPECIFIC_CONFIGS_11,
+    "10": _PLATFORM_SPECIFIC_CONFIGS_10,
 }
 
 def get_platform_specific_config(version, os_name):

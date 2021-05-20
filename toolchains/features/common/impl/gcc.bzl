@@ -279,7 +279,7 @@ _MISC_FEATURE = feature(
             flag_groups = [
                 flag_group(
                     flags = [
-                        "-std=c++2a",
+                        "-std=c++17",
                     ],
                 ),
             ],
