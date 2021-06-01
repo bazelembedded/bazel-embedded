@@ -24,5 +24,5 @@
 
 set -euo pipefail
 # Workaround to replace all system includes with user includes
-external/com_llvm_compiler/bin/clang "${@}" 
+external/com_llvm_compiler/bin/clang "${@}"
 #external/arm-none-eabi-compiler/bin/arm-none-eabi-gcc "$@"

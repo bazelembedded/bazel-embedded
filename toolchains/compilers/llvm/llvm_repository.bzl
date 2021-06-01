@@ -17,23 +17,29 @@ def _llvm_repository_impl(repository_ctx):
             stripPrefix = remote_toolchain_info["remote_compiler"]["strip_prefix"],
         )
     else:
-        repository_ctx.download(
-            url = "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/LLVM-11.1.0-win64.exe",
-            output = "clang_installer.exe",
-        )
+        fail("Windows is currently not supported for hermetic toolchains")
     sysroot_args = []
     sysroot_path = ""
     if repository_ctx.attr.sysroot != None:
         sysroot_path = str(repository_ctx.path("../../" + repository_ctx.attr.sysroot.workspace_root))
         sysroot_args = ["--sysroot", sysroot_path]
-    response = repository_ctx.execute(include_tools.ShellCommand(
-        "bin/clang++",
-        sysroot_args,
-    ))
-    include_paths = include_tools.ProccessResponse(response.stderr)
-    include_paths.append(
-        _get_resource_directory(repository_ctx),
-    )
+        response = repository_ctx.execute(include_tools.ShellCommand(
+            "bin/clang",
+            sysroot_args + ["--target x86_64-pc-linux-gnu"],
+            "c",
+        ))
+        include_paths = [
+            _get_resource_directory(repository_ctx),
+            str(repository_ctx.path("./include/c++/v1")),
+            str(repository_ctx.path("./include")),
+            str(repository_ctx.path("./lib/clang/11.0.1/include/")),
+            sysroot_path + "/usr/include",
+            sysroot_path + "/usr/include/x86_64-linux-gnu",
+            sysroot_path + "/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed",
+            sysroot_path + "/usr/lib/gcc/x86_64-linux-gnu/6/include",
+            sysroot_path + "/usr/include/linux",
+        ] + include_tools.ProccessResponse(response.stderr)
+
     include_flags = ["-isystem" + path for path in include_paths]
     include_bazel_template_input = include_tools.CommandLineToTemplateString(include_flags)
     include_paths_template_input = include_tools.CommandLineToTemplateString(include_paths)

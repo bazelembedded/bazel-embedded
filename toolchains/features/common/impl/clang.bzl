@@ -52,6 +52,14 @@ def ClangIncludeFeature(include_paths, sysroot):
                     ),
                 ],
             ),
+            flag_set(
+                actions = _LD_ALL_ACTIONS,
+                flag_groups = [
+                    flag_group(
+                        flags = [sysroot_command_line],
+                    ),
+                ],
+            ),
         ],
     )
     return _INCLUDE_FEATURE
@@ -298,9 +306,22 @@ _MISC = feature(
             flag_groups = [
                 flag_group(
                     flags = [
+                        "--warn-backrefs",
                         "-fuse-ld=lld",
-                        "-lstdc++",
+                        "-nodefaultlibs",
+                        "-lpthread",
+                        "-l:libunwind.a",
+                        "-ldl",
                         "-lm",
+                        "-lc",
+                        "-lgcc_eh",
+                        "-nostdlib++",
+                        "-stdlib=libc++",
+                        "-rtlib=compiler-rt",
+                        "-Lexternal/com_llvm_compiler/lib",
+                        "-lc++",
+                        "-lc++abi",
+                        "-static",
                     ],
                 ),
             ],
