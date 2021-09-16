@@ -23,7 +23,7 @@
 _WINDOWS = {
     "full_version": "9.2.1",
     "remote_compiler": {
-        "url": "https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-win32.zip?revision=95631fd0-0c29-41f4-8d0c-3702650bdd74&la=en&hash=D2C7F7C52183A8818AE6179AB87AA7CF6B1AE275",
+        "url": "https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-win32.zip",
         "sha256": "49d6029ecd176deaa437a15b3404f54792079a39f3b23cb46381b0e6fbbe9070",
         "strip_prefix": "",
     },
@@ -44,7 +44,7 @@ _PLATFORM_SPECIFIC_CONFIGS_9 = {
     "mac os x": {
         "full_version": "9.2.1",
         "remote_compiler": {
-            "url": "https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2019q4/RC2.1/gcc-arm-none-eabi-9-2019-q4-major-mac.tar.bz2?revision=0108cc32-e125-409b-ae7b-b2d6d30bf69c&la=en&hash=8C90ACFF11212E0540D74DA6A4F6CEE7253CD13F",
+            "url": "https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2019q4/RC2.1/gcc-arm-none-eabi-9-2019-q4-major-mac.tar.bz2",
             "sha256": "1249f860d4155d9c3ba8f30c19e7a88c5047923cea17e0d08e633f12408f01f0",
             "strip_prefix": "gcc-arm-none-eabi-9-2019-q4-major",
         },
