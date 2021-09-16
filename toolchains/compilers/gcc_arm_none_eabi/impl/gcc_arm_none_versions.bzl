@@ -33,7 +33,7 @@ _PLATFORM_SPECIFIC_CONFIGS_9 = {
     "linux": {
         "full_version": "9.2.1",
         "remote_compiler": {
-            "url": "https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2019q4/RC2.1/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2?revision=6e63531f-8cb1-40b9-bbfc-8a57cdfc01b4&la=en&hash=F761343D43A0587E8AC0925B723C04DBFB848339",
+            "url":"https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2019q4/RC2.1/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2",
             "sha256": "bcd840f839d5bf49279638e9f67890b2ef3a7c9c7a9b25271e83ec4ff41d177a",
             "strip_prefix": "gcc-arm-none-eabi-9-2019-q4-major",
         },
