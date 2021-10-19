@@ -68,7 +68,7 @@ register_gcc_arm_none_toolchain()
 git_repository(
     name = "io_bazel_stardoc",
     remote = "https://github.com/bazelbuild/stardoc.git",
-    tag = "0.4.0",
+    tag = "0.5.0",
 )
 
 load("@io_bazel_stardoc//:setup.bzl", "stardoc_repositories")
