@@ -1,6 +1,6 @@
 # bazel-embedded
 
-![CI](https://github.com/silvergasp/bazel-embedded/workflows/CI/badge.svg)
+[![CI](https://github.com/bazelembedded/bazel-embedded/actions/workflows/main.yml/badge.svg)](https://github.com/bazelembedded/bazel-embedded/actions/workflows/main.yml)
 
 
 <img src="https://upload.wikimedia.org/wikipedia/en/7/7d/Bazel_logo.svg" alt="drawing" width="200"/>
@@ -38,7 +38,7 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 git_repository(
     name = "bazel_embedded",
     commit = "d3cbe4eff9a63d3dee63067d61096d681daca33b",
-    remote = "https://github.com/silvergasp/bazel-embedded.git",
+    remote = "https://github.com/bazelembedded/bazel-embedded.git",
     shallow_since = "1585022166 +0800",
 )
 
