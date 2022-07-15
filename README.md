@@ -28,6 +28,9 @@ List of support;
 - [x] Utilities for debugging targets
 - [ ] Parralell execution for a test "farm" of embedded test devices
 
+## Our company needs feature X and would pay for its development
+Reach out to [@silvergasp](https://github.com/silvergasp).
+
 ## Getting started
 Add the following to your WORKSPACE file
 
