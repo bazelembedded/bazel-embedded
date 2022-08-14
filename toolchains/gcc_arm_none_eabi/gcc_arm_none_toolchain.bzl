@@ -104,6 +104,10 @@ def _gcc_arm_none_toolchain_config_info_impl(ctx):
             path = "gcc_wrappers/{os}/nm",
         ),
         tool_path(
+            name = "objcopy",
+            path = "gcc_wrappers/{os}/objcopy",
+        ),
+        tool_path(
             name = "objdump",
             path = "gcc_wrappers/{os}/objdump",
         ),
