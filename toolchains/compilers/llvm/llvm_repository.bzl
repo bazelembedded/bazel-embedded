@@ -65,8 +65,8 @@ llvm_repository = repository_rule(
     _llvm_repository_impl,
     attrs = {
         "version": attr.string(
-            default = "11",
-            doc = "LLVM version, version 11 currently only version supported",
+            default = "14",
+            doc = "LLVM version, version 11 and 14 currently only version supported",
             values = TOOLCHAIN_VERSIONS.keys(),
         ),
         "sysroot": attr.label(
