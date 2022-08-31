@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-_WINDOWS = {
+_WINDOWS_9 = {
     "full_version": "9.2.1",
     "remote_compiler": {
         "url": "https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-win32.zip",
@@ -38,9 +38,9 @@ _PLATFORM_SPECIFIC_CONFIGS_9 = {
             "strip_prefix": "gcc-arm-none-eabi-9-2019-q4-major",
         },
     },
-    "windows": _WINDOWS,
-    "windows server 2019": _WINDOWS,
-    "windows 10": _WINDOWS,
+    "windows": _WINDOWS_9,
+    "windows server 2019": _WINDOWS_9,
+    "windows 10": _WINDOWS_9,
     "mac os x": {
         "full_version": "9.2.1",
         "remote_compiler": {
@@ -51,8 +51,40 @@ _PLATFORM_SPECIFIC_CONFIGS_9 = {
     },
 }
 
+_WINDOWS_11 = {
+    "full_version": "11.3.rel1",
+    "remote_compiler": {
+        "url": "https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi.zip",
+        "sha256": "23f24595aa575fba4fdb0cb086df4b053862af60837502cb7e52bd4fb3d76c36",
+        "strip_prefix": "",
+    },
+}
+
+_PLATFORM_SPECIFIC_CONFIGS_11 = {
+    "linux": {
+        "full_version": "11.3.rel1",
+        "remote_compiler": {
+            "url":"https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi.tar.xz",
+            "sha256": "d420d87f68615d9163b99bbb62fe69e85132dc0a8cd69fca04e813597fe06121",
+            "strip_prefix": "arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi",
+        },
+    },
+    "windows": _WINDOWS_11,
+    "windows server 2019": _WINDOWS_11,
+    "windows 10": _WINDOWS_11,
+    "mac os x": {
+        "full_version": "11.3.rel1",
+        "remote_compiler": {
+            "url": "https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-darwin-x86_64-arm-none-eabi.tar.xz",
+            "sha256": "826353d45e7fbaa9b87c514e7c758a82f349cb7fc3fd949423687671539b29cf",
+            "strip_prefix": "arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi",
+        },
+    },
+}
+
 TOOLCHAIN_VERSIONS = {
     "9": _PLATFORM_SPECIFIC_CONFIGS_9,
+    "11": _PLATFORM_SPECIFIC_CONFIGS_11,
 }
 
 def get_platform_specific_config(version, os_name):
