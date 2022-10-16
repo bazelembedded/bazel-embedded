@@ -26,7 +26,7 @@ List of support;
 - [X] A collection of BUILD file templates for common embedded libraries
 - [x] Utilities for programming targets
 - [x] Utilities for debugging targets
-- [ ] Parralell execution for a test "farm" of embedded test devices
+- [ ] Parallel execution for a test "farm" of embedded test devices
 
 ## Our company needs feature X and would pay for its development
 Reach out to [@silvergasp](https://github.com/silvergasp).
