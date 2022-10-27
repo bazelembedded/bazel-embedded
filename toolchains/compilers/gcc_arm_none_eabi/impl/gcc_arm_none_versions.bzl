@@ -56,7 +56,7 @@ _WINDOWS_11 = {
     "remote_compiler": {
         "url": "https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi.zip",
         "sha256": "23f24595aa575fba4fdb0cb086df4b053862af60837502cb7e52bd4fb3d76c36",
-        "strip_prefix": "",
+        "strip_prefix": "arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi",
     },
 }
 
