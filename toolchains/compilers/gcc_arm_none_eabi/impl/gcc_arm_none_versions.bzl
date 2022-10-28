@@ -77,7 +77,7 @@ _PLATFORM_SPECIFIC_CONFIGS_11 = {
         "remote_compiler": {
             "url": "https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-darwin-x86_64-arm-none-eabi.tar.xz",
             "sha256": "826353d45e7fbaa9b87c514e7c758a82f349cb7fc3fd949423687671539b29cf",
-            "strip_prefix": "arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi",
+            "strip_prefix": "arm-gnu-toolchain-11.3.rel1-darwin-x86_64-arm-none-eabi",
         },
     },
 }
