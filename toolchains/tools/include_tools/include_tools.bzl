@@ -28,6 +28,8 @@ def ProccessResponse(shell_command_result):
     for line in lines:
         if "#include <...> search starts here:" == line:
             start_of_includes_found = True
+        if "End of search list." == line:
+            break
         line = line.replace(" ", "")
         if start_of_includes_found and (line.startswith("/") or line.startswith("c:\\")):
             line = line.replace("\\","/")
