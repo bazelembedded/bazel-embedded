@@ -35,14 +35,16 @@ def _llvm_repository_impl(repository_ctx):
     include_paths.append(
         _get_resource_directory(repository_ctx),
     )
-    include_flags = ["-isystem" + path for path in include_paths]
+    include_flags = []
+    for include_path in include_paths:
+        include_flags += ["-isystem", include_path]
     include_bazel_template_input = include_tools.CommandLineToTemplateString(include_flags)
     include_paths_template_input = include_tools.CommandLineToTemplateString(include_paths)
     repository_ctx.file(
         "defs.bzl",
         """
 SYSTEM_INCLUDE_COMMAND_LINE = {}
-SYSTEM_INCLUDE_PATHS= {}
+SYSTEM_INCLUDE_PATHS = {}
 SYSTEM_SYSROOT = "{}"
 """.format(include_bazel_template_input, include_paths_template_input, sysroot_path),
     )

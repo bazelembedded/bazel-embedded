@@ -49,14 +49,16 @@ def _com_gcc_arm_none_repository_impl(repository_ctx):
         os,
     ))
     include_paths = include_tools.ProccessResponse(response.stderr)
-    include_flags = ["-isystem" + path for path in include_paths]
+    include_flags = []
+    for include_path in include_paths:
+        include_flags += ["-isystem", include_path]
     include_bazel_template_input = include_tools.CommandLineToTemplateString(include_flags)
     include_paths_template_input = include_tools.CommandLineToTemplateString(include_paths)
     repository_ctx.file(
         "defs.bzl",
         """
 SYSTEM_INCLUDE_COMMAND_LINE = {}
-SYSTEM_INCLUDE_PATHS= {}
+SYSTEM_INCLUDE_PATHS = {}
 """.format(include_bazel_template_input, include_paths_template_input),
     )
 
