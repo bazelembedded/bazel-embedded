@@ -90,6 +90,7 @@ _SYS_SPEC_FEATURE = feature(
                     flags = [
                         # Disable Exceptions
                         "-lc",
+                        "-lstdc++",
                         "-lnosys",
                     ],
                 ),
