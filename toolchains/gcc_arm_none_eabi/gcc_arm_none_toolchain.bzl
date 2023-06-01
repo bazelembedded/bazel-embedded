@@ -200,6 +200,7 @@ gcc_arm_none_toolchain_config = rule(
                 "armv6s-m",
                 "armv7-m",
                 "armv7e-m",
+                "armv8-m",
                 "armv8-m.base",
                 "armv8-m.main",
                 "iwmmxt",
