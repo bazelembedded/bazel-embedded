@@ -78,6 +78,29 @@ platform(
 )
 
 platform(
+    name = "cortex_m33",
+    constraint_values = [
+        "@platforms//cpu:armv8-m",
+    ],
+    exec_properties = {
+        "EXECUTOR": "cortex_m33"
+    },
+    parents = [":cortex_m3"]
+)
+
+platform(
+    name = "cortex_m33_fpu",
+    constraint_values = [
+        "@platforms//cpu:armv8-m",
+        "@bazel_embedded//constraints/fpu:fpv5-d16",
+    ],
+    exec_properties = {
+        "EXECUTOR": "cortex_m33_fpu"
+    },
+    parents = [":cortex_m3"]
+)
+
+platform(
     name = "stm32f2xx",
     parents = [":cortex_m3"],
 )

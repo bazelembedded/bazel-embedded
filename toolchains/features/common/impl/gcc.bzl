@@ -49,6 +49,12 @@ def GccIncludeFeature(include_paths):
 def GccAchitectureFeature(architecture, float_abi, endian, fpu):
     if fpu == "none":
         fpu = "auto"
+
+    # @platforms//cpu has armv8-m entry intended to match cortex m23, m33, m35p
+    # processors which all have the main instruction set. GCC needs this
+    # explicitly set when using arch flag.
+    if architecture == "armv8-m":
+        architecture = "armv8-m.main"
     _ARCHITECTURE_FEATURE = feature(
         name = "architecture",
         enabled = True,
