@@ -82,9 +82,41 @@ _PLATFORM_SPECIFIC_CONFIGS_11 = {
     },
 }
 
+_WINDOWS_12 = {
+    "full_version": "12.2.rel1",
+    "remote_compiler": {
+        "url": "https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/12.2.rel1/binrel/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi.zip",
+        "sha256": "ad1427496cde9bbe7604bc448ec6e115c6538e04af1c8275795ebb1c2b7b2830",
+        "strip_prefix": "arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi",
+    },
+}
+
+_PLATFORM_SPECIFIC_CONFIGS_12 = {
+    "linux": {
+        "full_version": "12.2.rel1",
+        "remote_compiler": {
+            "url":"https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/12.2.rel1/binrel/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi.tar.xz",
+            "sha256": "84be93d0f9e96a15addd490b6e237f588c641c8afdf90e7610a628007fc96867",
+            "strip_prefix": "arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi",
+        },
+    },
+    "windows": _WINDOWS_12,
+    "windows server 2019": _WINDOWS_12,
+    "windows 10": _WINDOWS_12,
+    "mac os x": {
+        "full_version": "12.2.rel1",
+        "remote_compiler": {
+            "url": "https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/12.2.rel1/binrel/arm-gnu-toolchain-12.2.rel1-darwin-x86_64-arm-none-eabi.tar.xz",
+            "sha256": "00c0eeb57ae92332f216151ac66df6ba17d2d3b306dac86f4006006f437b2902",
+            "strip_prefix": "arm-gnu-toolchain-12.2.rel1-darwin-x86_64-arm-none-eabi",
+        },
+    },
+}
+
 TOOLCHAIN_VERSIONS = {
     "9": _PLATFORM_SPECIFIC_CONFIGS_9,
     "11": _PLATFORM_SPECIFIC_CONFIGS_11,
+    "12": _PLATFORM_SPECIFIC_CONFIGS_12,
 }
 
 def get_platform_specific_config(version, os_name):
