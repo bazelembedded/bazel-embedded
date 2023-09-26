@@ -63,5 +63,5 @@ jobs:
 
       - name: Build
         run: |
-          bazelisk build  --platforms=@local_config_platform//:host //... 
+          bazelisk build  --platforms=@local_config_platform//:host //...
 
